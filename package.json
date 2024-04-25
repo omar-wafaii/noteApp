@@ -6,11 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "next": "14.2.2",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.2"
+    "uuid": "^9.0.1",
+    "uuid-by-string": "^4.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^24.0.0"
   }
 }
