@@ -1,4 +1,4 @@
-import { editNote } from "../app/Functions.js";
+import { editNote } from "../app/utils/noteUtils.js.js/index.js";
 
 describe('editNote function', () => {
     let notes = [

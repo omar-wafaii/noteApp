@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useState, useEffect } from 'react'
-import {addNote} from "../Functions.js"
+import {addNote} from "../utils/noteUtils.js"
 import { useRouter } from 'next/navigation'
 import { context } from '../Context/Context';
 const getUuid = require('uuid-by-string');

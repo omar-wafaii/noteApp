@@ -2,7 +2,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { context } from '../Context/Context';
 import { useSearchParams, useRouter } from 'next/navigation'
-import { editNote } from '../Functions';
+import { editNote } from '../utils/noteUtils.js';
 
 
 
@@ -23,9 +23,7 @@ function page() {
 
   useEffect(() => {
     if (notes) {
-      console.log(notes);
       foundNote = notes.find(note => note.id === pid);
-      console.log(foundNote);
       setNote(foundNote);
 
       setPlaceTitle(foundNote.title);
@@ -37,33 +35,25 @@ function page() {
 
 
   const edit = (event) => {
-
     event.preventDefault();
     const title = event.target.titleForm.value;
     const content = event.target.noteContent.value;
+  
     try {
-      if (title && content) {
-        try {
-          if (title.length < 100) {
-            setNotes(editNote(pid,title,content,notes));
-            router.push('/');
-          } else {
-            throw new Error("title is too long");
-          }
-        } catch (error) {
-          setError("title is too long");
-          console.error(error);
-        }
-      } else {
+      if (!title || !content) {
         throw new Error("fields are empty");
       }
+      if (title.length >= 100) {
+        throw new Error("title is too long");
+      }
+  
+      setNotes(editNote(pid, title, content, notes));
+      router.push('/');
     } catch (error) {
-      setError("fields cant be empty");
+      setError(error.message);
       console.error(error);
     }
-
-  }
-
+  };
 
   return (
     <main>

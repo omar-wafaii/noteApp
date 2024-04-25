@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useState, useEffect } from 'react';
-import { deleteNote } from './Functions';
+import { deleteNote } from './utils/noteUtils.js';
 import RouteButton from "./components/RouteButton";
 import Link from 'next/link'
 import styles from "./globals.css"

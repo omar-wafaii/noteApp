@@ -1,4 +1,4 @@
-import { addNote } from "../app/Functions.js";
+import { addNote } from "../app/utils/noteUtils.js.js/index.js";
 const getUuid = require('uuid-by-string');
 
 

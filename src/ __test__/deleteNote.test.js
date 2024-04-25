@@ -1,4 +1,4 @@
-import { deleteNote } from "../app/Functions.js";
+import { deleteNote } from "../app/utils/noteUtils.js.js/index.js";
 
 describe('deleteNote function', () => {
 
