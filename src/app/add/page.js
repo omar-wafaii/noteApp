@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useState, useEffect } from 'react'
-import {addNote} from "../utils/noteUtils.js"
+import { addNote } from "../utils/noteUtils.js"
 import { useRouter } from 'next/navigation'
 import { context } from '../Context/Context';
 const getUuid = require('uuid-by-string');
@@ -12,55 +12,38 @@ function page() {
   const { notes, setNotes } = useContext(context);
   const [error, setError] = useState(null);
 
-  
+
 
   const onSave = (event) => {
+    event.preventDefault();
+
     const title = event.target.titleForm.value;
     const content = event.target.noteContent.value;
 
-    try {
-      if (title && content) {
-        try {
-          if (title.length < 100) {
-            let titleExists = null;
-            if (notes) {
-              titleExists = notes.some((note) => note.title === title);
-            }
-
-            try {
-              if (!titleExists) {
-                const id = getUuid(title);
-                const newNote = addNote(id, title, content);
-                console.log(newNote);
-                setNotes([...notes, newNote]);
-                router.push("/");
-              } else {
-                throw new Error("title already exists");
-              }
-            } catch (error) {
-              setError("title already exists");
-              console.error(error);
-            }
-
-
-
-          } else {
-            throw new Error("title is too long");
-          }
-        } catch (error) {
-          setError("title is too long");
-          console.error(error);
-        }
-      } else {
-        throw new Error("fields are empty");
-      }
-    } catch (error) {
-      setError("fields cant be empty");
-      console.error(error);
+    if (!title || !content) {
+      setError("Fields cannot be empty");
+      return;
     }
-    event.preventDefault();
 
-  }
+    if (title.length >= 100) {
+      setError("Title is too long");
+      return;
+    }
+
+    const titleExists = notes?.some((note) => note.title === title);
+    if (titleExists) {
+      setError("Title already exists");
+      return;
+    }
+
+    const id = getUuid(title);
+    const newNote = addNote(id, title, content);
+    setNotes([...notes, newNote]);
+    router.push("/");
+  };
+
+
+
 
   return (
     <main>
