@@ -28,7 +28,7 @@ Table of contents:
  npm install
  ```
 
- ## demo
+ ## usage
  ![demo of the home page](/public/assets/images/img-2.png)
 
  As you can see the home page list the saved note in the localestorage and for each note you can choose to edit or delete and you can add a note by clicking on the add button which will take you to the add page.
