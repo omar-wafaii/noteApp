@@ -9,7 +9,7 @@ Table of contents:
 - Usage
 
 # About the Project
-![ app first look ](https://raw.githubusercontent.com/omar-wafaii/noteApp/main/public/assets/images/Screenshot from 2024-04-26 00-28-13.png )
+![ app first look ](https://raw.githubusercontent.com/omar-wafaii/noteApp/main/public/assets/images/img-2.png )
 
  With this note taking app. You can add, edit, delete and see the content of your notes as much as you like. and they are kept in localestorage so if you refresh or exit your browser they will stay safe in your device. and its a secure app having been tested and all forms validated.
 
@@ -29,7 +29,7 @@ Table of contents:
  ```
 
  ## demo
- ![demo of the home page](/public/assets/images/imageintern/img-2.png)
+ ![demo of the home page](/public/assets/images/img-2.png)
 
  As you can see the home page list the saved note in the localestorage and for each note you can choose to edit or delete and you can add a note by clicking on the add button which will take you to the add page.
 
